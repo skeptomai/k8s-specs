@@ -1,0 +1,643 @@
+ 8145  brew update && brew install kubectl minikube
+ 8149  kubectl
+ 8156  kubectl config current-context
+ 8157  kubectl get nodes
+ 8158  kubectl get all --all-namespaces
+ 8161  kubectl  version --output=yaml
+ 8164  kubectl get nodes
+ 8168  kubectl run db --image mongo
+ 8169  kubectl get pods
+ 8172  kubectl delete pod db
+ 8180  kubectl create -f pod/db.yml
+ 8181  kubectl get pods
+ 8182  kubectl get pods -o wide
+ 8183  kubectl get pods -o json
+ 8184  kubectl get pods -o yaml
+ 8185  kubectl describe pod db
+ 8187  kubectl describe pod db
+ 8188  kubectl describe -f pod/db.yml
+ 8189  kubectl exec db ps axuw
+ 8190  kubectl exec -it db sh
+ 8191  kubectl exec -it db --  sh
+ 8192  kubectl logs db
+ 8193  kubectl exec -it db pkill mongod
+ 8194  kubectl get pods
+ 8195  kubectl delete -f pod/db.yml
+ 8196  kubectl get pods
+ 8198  kubectl create -f pod/go-demo-2.yml
+ 8199  kubectl get pods
+ 8200  kubectl get -f pod/go-demo-2.yml
+ 8201  kubectl get -f pod/go-demo-2.yml -o json
+ 8202  kubectl get -f pod/go-demo-2.yml -o jsonpath="{.spec.containers[*].name}"
+ 8203  kubectl exec -it -c db go-demo-2 --  ps aux
+ 8204  kubectl logs go-demo-2 -c db
+ 8205  kubectl delete -f pod/db.yml
+ 8206  kubectl list-pods
+ 8207  kubectl get pods
+ 8208  kubectl delete -f pod/go-demo-2.yml
+ 8209  kubectl get pods
+ 8218  kubectl create -f pod/go-demo-2-health.yml
+ 8219  kubectl create -f go-demo-2-health.yml
+ 8221  kubectl describe -f pod/go-demo-2-health.yml
+ 8228  kubectl create -f rs/go-demo-2.yml
+ 8229  kubectl get rs
+ 8231  kubectl describe -f rs/go-demo-2.yml
+ 8232  kubectl get pods
+ 8233  kubectl get pods --show-lables
+ 8234  kubectl get pods --show-labels
+ 8236  kubectl delete -f rs/go-demo-2.yml --cascade=false
+ 8237  kubectl get rs
+ 8238  kubectl get pods --show-labels
+ 8239  kubectl create -f rs/go-demo-2.yml --save-config
+ 8240  kubectl get pods --show-labels
+ 8241  kubectl apply -f rs/go-demo-2-scaled.yml
+ 8242  kubectl get pods --show-labels
+ 8243  kubectl get pods
+ 8244  POD_NAME=$(kubectl get pods -o name | tail -1)
+ 8245  kubectl delete $POD_NAME
+ 8247  kubectl get pods
+ 8248  POD_NAME=$(kubectl get pods -o name \\n    | tail -1)\nkubectl label $POD_NAME service-\nkubectl describe $POD_NAME
+ 8249  kubectl get pods --show-labels
+ 8250  kubectl label $POD_NAME service=go-demo-2
+ 8251  kubectl get pods --show-labels
+ 8254  kubectl config current-context
+ 8255  kubectl create -f svc/go-demo-2-rs.yml
+ 8256  kubectl get -f svc/go-demo-2-rs.yml
+ 8257  kubectl expose rs go-demo-2 --name=go-demo-2-svc --target-port=28017 --type=NodePort
+ 8258  kubectl describe svc go-demo-2-svc
+ 8259  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8262  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8264  kubectl describe svc go-demo-2-svc
+ 8265  kubectl delete svc go-demo-2-svc
+ 8266  kubectl get -f svc/go-demo-2-rs.yml
+ 8267  kubectl get -f svc/go-demo-2-svc.yml
+ 8268  kubectl get -f svc/go-demo-2-rs.yml
+ 8269  kubectl delete svc go-demo-2-rs
+ 8270  kubectl get -f svc/go-demo-2-rs.yml
+ 8271  kubectl delete rs go-demo-2
+ 8272  kubectl get -f svc/go-demo-2-rs.yml
+ 8273  kubectl get pods
+ 8274  kubectl create -f svc/go-demo-2-rs.yml
+ 8275  kubectl get -f svc/go-demo-2-rs.yml
+ 8276  kubectl expose rs go-demo-2 --name=go-demo-2-svc --target-port=28017 --type=NodePort
+ 8277  kubectl get -f svc/go-demo-2-rs.yml
+ 8278  kubectl describe svc go-demo-2-svc
+ 8279  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8284  kubectl delete svc go-demo-2-svc
+ 8285  kubectl get -f svc/go-demo-2-rs.yml
+ 8286  kubectl delete rs go-demo-2
+ 8287  kubectl get -f svc/go-demo-2-rs.yml
+ 8288  kubectl describe svc go-demo-2-svc
+ 8289  kubectl get pods
+ 8291  kubectl create -f svc/go-demo-2-svc.yml
+ 8295  kubectl create -f svc/go-demo-2-svc.yml
+ 8296  kubectl get -f svc/go-demo-2-svc.yml
+ 8300  kubectl get node -o wide
+ 8305  kubectl delete -f svc/go-demo-2-svc.yml
+ 8306  kubectl delete -f svc/go-demo-2-rs.yml
+ 8307  kubectl config current-context
+ 8308  kubectl create -f svc/go-demo-2-rs.yml
+ 8309  kubectl get -f svc/go-demo-2-rs.yml
+ 8310  kubectl expose rs go-demo-2 --name=go-demo-2-svc --target-port=28017 --type=NodePort
+ 8311  kubectl describe svc go-demo-2-svc
+ 8315  kubectl delete -f svc/go-demo-2-rs.yml
+ 8316  kubectl delete -f svc/go-demo-2-svc.yml
+ 8317  kubectl get -f svc/go-demo-2-rs.yml
+ 8318  kubectl get -f svc/go-demo-2-svc.yml
+ 8319  kubectl create -f svc/go-demo-2-svc.yml
+ 8320  kubectl get -f svc/go-demo-2-svc.yml
+ 8322  kubectl describe svc go-demo-2-svc
+ 8329  kubectl get svc
+ 8335  kubectl get svc
+ 8337  kubectl get svc
+ 8342  kubectl config current-context
+ 8345  kubectl create -f svc/go-demo-2-svc.yml
+ 8346  kubectl get -f svc/go-demo-2-svc.yml
+ 8358  kubectl get -f svc/go-demo-2-svc.yml
+ 8360  kubectl delete -f svc/go-demo-2-svc.yml
+ 8366  kubectl get rs
+ 8367  kubectl get pods
+ 8369  kubectl create -f rs/go-demo-2.yml --save-config
+ 8370  kubectl get pods
+ 8371  kubectl apply -f rs/go-demo-2-scaled.yml
+ 8372  kubectl get pods
+ 8373  POD_NAME=$(kubectl get pods -o name \\n   | tail -1)\nkubectl delete $POD_NAME
+ 8374  kubectl get pods
+ 8375  kubectl get rs
+ 8376  kubectl delete rs go-demo-2
+ 8377  kubectl get pods
+ 8381  kubectl config current-context
+ 8382  kubectl create -f svc/go-demo-2-rs.yml
+ 8383  kubectl get -f svc/go-demo-2-rs.yml
+ 8384  kubectl expose rs go-demo-2 --name=go-demo-2-svc --target-port=28017 --type=NodePort
+ 8385  kubectl describe svc go-demo-2-svc
+ 8389  kubectl describe svc go-demo-2-svc
+ 8390  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8392  kubectl delete svc go-demo-2-svc
+ 8393  kubectl create -f svc/go-demo-2-svc.yml
+ 8394  kubectl get -f svc/go-demo-2-svc.yml
+ 8399  kubectl get ep go-demo-2 -o yaml
+ 8401  kubectl delete -f svc/go-demo-2-svc.yml
+ 8402  kubectl delete -f svc/go-demo-2-rs.yml 
+ 8403  kubectl create -f svc/go-demo-2-db-rs.yml
+ 8404  kubectl create -f svc/go-demo-2-db-svc.yml
+ 8405  kubectl create -f svc/go-demo-2-api-rs.yml
+ 8406  kubectl create -f svc/go-demo-2-api-svc.yml
+ 8407  kubectl get all
+ 8408  PORT=$(kubectl get svc go-demo-2-api \\n    -o jsonpath="{.spec.ports[0].nodePort}")
+ 8410  kubectl delete -f svc/go-demo-2-db-rs.yml
+ 8411  kubectl delete -f svc/go-demo-2-db-svc.yml
+ 8412  kubectl delete -f svc/go-demo-2-api-rs.yml
+ 8413  kubectl delete -f svc/go-demo-2-api-svc.yml
+ 8414  kubectl get all
+ 8415  kubectl create -f svc/go-demo-2.yml
+ 8417  kubectl get pods
+ 8418  POD_NAME=$(kubectl get pod \\n    --no-headers \\n    -o=custom-columns=NAME:.metadata.name \\n    -l type=api,service=go-demo-2 \\n    | tail -1)\n\nkubectl exec $POD_NAME env
+ 8419  kubectl describe svc go-demo-2-db
+ 8423  kubectl config current-context
+ 8424  kubectl create -f deploy/go-demo-2-db.yml --record
+ 8425  kubectl get -f deploy/go-demo-2-db.yml
+ 8426  kubectl describe -f deploy/go-demo-2-db.yml
+ 8427  kubectl get all
+ 8428  kubectl set image -f deploy/go-demo-2-db.yml db=mongo:3.4 --record
+ 8429  kubectl describe -f deploy/go-demo-2-db.yml
+ 8430  kubectl get all
+ 8431  kubectl create -f deploy/go-demo-2-db-svc.yml --record
+ 8433  kubectl get svc
+ 8435  kubectl get all
+ 8436  kubectl create -f deploy/go-demo-2-api.yml --record
+ 8437  kubectl get -f deploy/go-demo-2-api.yml
+ 8438  kubectl set image -f deploy/go-demo-2-api.yml api=vfarcic/go-demo-2:2.0 --record
+ 8439  kubectl rollout status
+ 8440  kubectl rollout status -w -f deploy/go-demo-2-api.yml
+ 8441  kubectl describe -f deploy/go-demo-2-api.yml
+ 8442  kubectl rollout history -f deploy/go-demo-2-api.yml
+ 8443  kubectl get rs
+ 8444  kubectl rollout undo -f deploy/go-demo-2-api.yml
+ 8445  kubectl describe -f deploy/go-demo-2-api.yml
+ 8446  kubectl rollout history -f deploy/go-demo-2-api.yml
+ 8447  kubectl set image \\n    -f deploy/go-demo-2-api.yml \\n    api=vfarcic/go-demo-2:3.0 \\n    --record\n\nkubectl rollout status \\n    -f deploy/go-demo-2-api.yml
+ 8448  kubectl set image \\n    -f deploy/go-demo-2-api.yml \\n    api=vfarcic/go-demo-2:4.0 \\n    --record\n\nkubectl rollout status \\n    -f deploy/go-demo-2-api.yml
+ 8449  kubectl rollout history -f deploy/go-demo-2-api.yml
+ 8450  kubectl rollout undo \\n    -f deploy/go-demo-2-api.yml \\n    --to-revision=2\n\nkubectl rollout history \\n    -f deploy/go-demo-2-api.yml
+ 8451  kubectl set image \\n   -f deploy/go-demo-2-api.yml \\n   api=vfarcic/go-demo-2:does-not-exist \\n   --record
+ 8452  kubectl get rs -l type=api
+ 8453  kubectl rollout status -f deploy/go-demo-2-api.yml
+ 8455  kubectl rollout undo -f deploy/go-demo-2-api.yml
+ 8456  kubectl rollout status -f deploy/go-demo-2-api.yml
+ 8457  kubectl delete \\n    -f deploy/go-demo-2-db.yml\n\nkubectl delete \\n    -f deploy/go-demo-2-db-svc.yml\n\nkubectl delete \\n    -f deploy/go-demo-2-api.yml
+ 8458  kubectl create -f deploy/go-demo-2.yml --record --save-config
+ 8459  kubectl get -f deploy/go-demo-2.yml
+ 8460  kubectl create -f deploy/different-app-db.yml
+ 8461  kubectl get deployments --show-labels
+ 8462  kubectl get deployments -l type=db,vendor=MongoLabs
+ 8463  kubectl set image deployments -l type=db,vendor=MongoLabs db=mongo:3.4 --record
+ 8464  kubectl describe -f deploy/go-demo-2.yml
+ 8466  kubectl describe -f deploy/go-demo-2.yml
+ 8467  kubectl apply -f deploy/go-demo-2-scaled.yml
+ 8468  kubectl get -f deploy/go-demo-2-scaled.yml
+ 8469  kubectl scale deployment go-demo-2-api --replicas 8 --record
+ 8470  kubectl describe -f deploy/go-demo-2-scaled.yml
+ 8471  kubectl get -f deploy/go-demo-2-scaled.yml
+ 8472  kubectl get deployments
+ 8475  kubectl config current-context
+ 8478  kubectl config current-context
+ 8479  kubectl create \\n    -f ingress/go-demo-2-deploy.yml\n\nkubectl get \\n    -f ingress/go-demo-2-deploy.yml
+ 8480  kubectl get pods
+ 8482  kubectl create \\n    -f ingress/devops-toolkit-dep.yml \\n    --record --save-config\n\nkubectl get \\n    -f ingress/devops-toolkit-dep.yml
+ 8483  kubectl get svc
+ 8485  PORT=$(kubectl get svc devops-toolkit \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\nopen "http://$IP:$PORT"
+ 8486  kubectl get svc
+ 8558  kubectl config current-context
+ 8560  kubectl create \\n    -f ingress/go-demo-2-deploy.yml\n\nkubectl get \\n    -f ingress/go-demo-2-deploy.yml
+ 8561  kubectl get all
+ 8565  kubectl config current-context
+ 8566  kubectl create \\n    -f ingress/go-demo-2-deploy.yml\n\nkubectl get \\n    -f ingress/go-demo-2-deploy.yml
+ 8567  kubectl get all
+ 8568  kubectl delete \\n    -f deploy/go-demo-2-db.yml\n\nkubectl delete \\n    -f deploy/go-demo-2-db-svc.yml\n\nkubectl delete \\n    -f deploy/go-demo-2-api.yml
+ 8569  kubectl get all
+ 8570  kubectl delete svc go-demo-2-api
+ 8571  kubectl get all
+ 8601  kubectl delete \\n    -f deploy/go-demo-2-db.yml\n\nkubectl delete \\n    -f deploy/go-demo-2-db-svc.yml\n\nkubectl delete \\n    -f deploy/go-demo-2-api.yml
+ 8602  kubectl config current-context
+ 8613  kubectl create \\n    -f ingress/go-demo-2-deploy.yml\n\nkubectl get \\n    -f ingress/go-demo-2-deploy.yml
+ 8615  kubectl create \\n    -f ingress/go-demo-2-deploy.yml\n\nkubectl get \\n    -f ingress/go-demo-2-deploy.yml
+ 8616  kubectl config current-context
+ 8621  kubectl get pods -n ingress-nginx \\n    | grep ingress
+ 8622  kubectl apply -f deployment/nginx-ingress.yaml
+ 8623  kubectl get pods -n ingress-nginx \\n    | grep ingress
+ 8624  kubectl get all --namespaces ingress-nginx
+ 8625  kubectl get all --namespace ingress-nginx
+ 8631  kubectl get service
+ 8632  kubectl get all --namespace ingress-nginx
+ 8633  kubectl get ep
+ 8636  kubectl get ep
+ 8637  kubectl create \\n    -f ingress/go-demo-2-deploy.yml\n\nkubectl get \\n    -f ingress/go-demo-2-deploy.yml
+ 8638  kubectl get pods
+ 8639  kubectl get all --namespace ingress-nginx
+ 8640  kubectl get pods
+ 8642  kubectl get pods
+ 8643  IP=$(minikube ip)\n\nPORT=$(kubectl get svc go-demo-2-api \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\ncurl -i "http://$IP:$PORT/demo/hello"
+ 8644  kubectl create \\n    -f ingress/devops-toolkit-dep.yml \\n    --record --save-config\n\nkubectl get \\n    -f ingress/devops-toolkit-dep.yml
+ 8645  PORT=$(kubectl get svc devops-toolkit \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\nopen "http://$IP:$PORT"
+ 8650  PORT=$(kubectl get svc devops-toolkit \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\nopen "http://$IP:$PORT"
+ 8653  kubectl get all --namespace ingress-nginx
+ 8654  kubectl get pods -n ingress-nginx \\n    | grep ingress
+ 8655  kubectl get pods -w -n ingress-nginx \\n    | grep ingress
+ 8656  kubectl get pods -n ingress-nginx \\n    | grep ingress
+ 8659  kubectl get ep
+ 8660  PORT=$(kubectl get svc devops-toolkit \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\nopen "http://$IP:$PORT"
+ 8663  kubectl get pods -n ingress-nginx \\n    | grep ingress
+ 8664  kubectl get pods -n ingress-nginx
+ 8666  kubectl get pods -n ingress-nginx
+ 8667  kubectl get ep
+ 8668  kubectl get pods
+ 8669  kubectl get pods -n ingress-nginx
+ 8672  kubectl get pods -n ingress-nginx
+ 8673  kubectl get ep
+ 8676  kubectl get ep
+ 8677  kubectl get pods -n ingress-nginx
+ 8678  kubectl get pods -n ingress-nginx --alsologstderr
+ 8679  kubectl get pods -n ingress-nginx \\n    | grep ingress
+ 8681  kubectl get ep
+ 8683  kubectl get pods -n ingress-nginx \\n    | grep ingress
+ 8684  kubectl get pods -n ingress-nginx 
+ 8687  kubectl get pods -n ingress-nginx 
+ 8691  kubectl get pods -n ingress-nginx 
+ 8695  kubectl get pods -n ingress-nginx 
+ 8696  kubectl create \\n    -f ingress/go-demo-2-deploy.yml\n\nkubectl get \\n    -f ingress/go-demo-2-deploy.yml
+ 8697  kubectl create \\n    -f ingress/devops-toolkit-dep.yml \\n    --record --save-config\n\nkubectl get \\n    -f ingress/devops-toolkit-dep.yml
+ 8698  kubectl get pods -n ingress-nginx 
+ 8699  kubectl get all
+ 8700  kubectl get pods
+ 8701  kubectl get pods -n ingress-nginx 
+ 8703  IP=$(minikube ip)\n\nPORT=$(kubectl get svc go-demo-2-api \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\ncurl -i "http://$IP:$PORT/demo/hello"
+ 8705  kubectl get pods -n ingress-nginx 
+ 8710  kubectl config current-context
+ 8711  kubectl config current-context --help
+ 8712  kubectl get all
+ 8715  kubectl get pods -n ingress-nginx 
+ 8716  kubectl create -f ingress/go-demo-2-ingress.yml
+ 8717  kubectl get -f ingress/go-demo-2-ingress.yml
+ 8720  kubectl delete -f ingress/go-demo-2-ingress.yml
+ 8721  kubectl delete -f ingress/go-demo-2-deploy.yml
+ 8722  kubectl create 
+ 8723  kubectl create -f ingress/go-demo-2.yml --record --save-config
+ 8725  kubectl create -f ingress/devops-toolkit.yml --record --save-config
+ 8726  kubectl get ing
+ 8729  kubectl apply -f ingress/devops-toolkit-dom.yml --record
+ 8734  kubectl create -f ingress/default-backend.yml
+ 8739  kubectl get ing
+ 8740  kubectl get pods
+ 8741  kubectl apply -f deployment/nginx-ingress.yaml
+ 8742  kubectl create -f ingress/default-backend.yml
+ 8743  kubectl get pods -n ingress-nginx 
+ 8748  kubectl get pods -n ingress-nginx 
+ 8749  kubectl get pods -w -n ingress-nginx 
+ 8750  kubectl describe -n ingress-nginx 
+ 8751  kubectl describe -n ingress-nginx pod ingress-nginx-admission-patch--1-zn8qv
+ 8757  minikube start --vm-driver=hyperkit\nminikube addons enable ingress\nkubectl config current-context
+ 8758  kubectl run docker \\n    --image=docker:17.11  --restart=Never \\n    docker image ls\n\nkubectl get pods
+ 8759  kubectl get pods 
+ 8760  kubectl logs docker
+ 8761  kubectl delete pod docker
+ 8762  kubectl create -f volume/docker.yml
+ 8763  kubectl exec -it docker -- docker image ls --format "{{.Repository}}"
+ 8764  kubectl exec -it docker sh
+ 8765  kubectl delete -f volume/docker.yml
+ 8767  kubectl config current-context
+ 8768  kubectl get pods 
+ 8769  kubectl delete -f volume/docker.yml
+ 8771  cat volume/prometheus.yml | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl create -f - \\n    --record --save-config\n\nkubectl rollout status deploy prometheus
+ 8773  cat volume/prometheus.yml | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl create -f - \\n    --record --save-config\n\nkubectl rollout status deploy prometheus
+ 8780  cat volume/prometheus-host-path.yml \\n    | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl apply -f -\n\nkubectl rollout status deploy prometheus\n\nopen "http://$(minikube ip)/prometheus/targets"
+ 8781  kubectl delete \\n    -f volume/prometheus-host-path.yml
+ 8782  kubectl create \\n    -f volume/github.yml
+ 8783  kubectl exec -it github sh\ncd /src\nls -l
+ 8784  kubectl delete \\n-f volume/github.yml
+ 8785  kubectl create \\n    -f volume/jenkins.yml \\n    --record --save-config\n\nkubectl rollout status deploy jenkins
+ 8788  POD_NAME=$(kubectl get pods \\n    -l service=jenkins,type=master \\n    -o jsonpath="{.items[*].metadata.name}")\n\nkubectl exec -it $POD_NAME kill 1
+ 8789  kubectl get pods 
+ 8791  kubectl apply -f volume/jenkins-empty-dir.yml
+ 8792  kubectl rollout status deploy jenkins
+ 8794  POD_NAME=$(kubectl get pods \\n    -l service=jenkins,type=master \\n    -o jsonpath="{.items[*].metadata.name}")\n\nkubectl exec -it $POD_NAME kill 1\n\nkubectl get pods
+ 8796  kubectl delete \\n-f volume/github.yml
+ 8813  alias kcc='kubectl config current-context'
+ 8815  kubectl create cm my-config --from-file=cm/prometheus-conf.yml
+ 8816  kubectl describe cm my-config
+ 8818  alias kc='kubectl create'
+ 8822  alias kccc='kubectl config current-context'\nalias kc='kubectl'\nalias kcr='kubectl create'\n
+ 8825  alias kcgp='kubectl get pods'
+ 8830  alias kcd='kubectl delete'
+ 8833  kubectl create cm my-config \\n    --from-file=cm/prometheus-conf.yml \\n    --from-file=cm/prometheus.yml\n\nkubectl create -f cm/alpine.yml\n\n
+ 8849  alias kce='kubectl exec'
+ 8861  alias kcgp='kubectl get pods'
+ 8865  cat cm/prometheus.yml | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl create -f -\n\nkubectl rollout status deploy prometheus\n\nopen "http://$(minikube ip)/prometheus/targets"
+ 8871  kubectl create \\n    -f secret/jenkins-unprotected.yml \\n    --record --save-config\n\nkubectl rollout status deploy jenkins
+ 8877  POD_NAME=$(kubectl get pods \\n    -l service=jenkins,type=master \\n    -o jsonpath="{.items[*].metadata.name}")\n\nkubectl exec -it $POD_NAME -- ls \\n    /var/run/secrets/kubernetes.io/serviceaccount
+ 8879  kubectl create secret \\n    generic my-creds \\n    --from-literal=username=jdoe \\n    --from-literal=password=incognito
+ 8882  kubectl get secret my-creds \\n    -o jsonpath="{.data.username}" \\n    | base64 --decode
+ 8883  kubectl get secret my-creds \\n    -o jsonpath="{.data.password}" \\n    | base64 --decode
+ 8888  POD_NAME=$(kubectl get pods \\n    -l service=jenkins,type=master \\n    -o jsonpath="{.items[*].metadata.name}")\n\nkubectl exec -it $POD_NAME \\n    -- ls /etc/secrets
+ 8889  kubectl exec -it $POD_NAME \\n    -- cat /etc/secrets/jenkins-user
+ 8897  IMG=vfarcic/go-demo-2\n\nTAG=1.0\n\ncat ns/go-demo-2.yml \\n    | sed -e \\n    "s@image: $IMG@image: $IMG:$TAG@g" \\n    | kubectl create -f -
+ 8898  kubectl rollout status \\n    deploy go-demo-2-api
+ 8900  kubectl get all
+ 8902  kubectl --namespace kube-public get all\n
+ 8903  kubectl --namespace kube-system get all
+ 8906  kubectl config set-context testing \\n    --namespace testing \\n    --cluster minikube \\n    --user minikube
+ 8911  TAG=2.0\n\nDOM=go-demo-2.com\n\ncat ns/go-demo-2.yml \\n    | sed -e \\n    "s@image: $IMG@image: $IMG:$TAG@g" \\n    | sed -e \\n    "s@host: $DOM@host: $TAG\.$DOM@g" \\n    | kubectl create -f -
+ 8912  kubectl rollout status \\n    deploy go-demo-2-api
+ 8916  kubectl run test --image=alpine sleep 10000
+ 8917  kubectl get pod test
+ 8918  kubectl exec -it test \\n    -- apk add -U curl
+ 8919  kubectl exec -it test -- curl \\n    "http://go-demo-2-api:8080/demo/hello"
+ 8920  kubectl exec -it test -- curl \\n    "http://go-demo-2-api.testing:8080/demo/hello"
+ 8925  kubectl set image \\n    deployment/go-demo-2-api \\n    api=vfarcic/go-demo-2:2.0 \\n    --record
+ 8930  kubectl config view \\n    -o jsonpath='{.clusters[?(@.name=="minikube")].cluster.server}'
+ 8931  kubectl config view \\n    -o jsonpath='{.clusters[?(@.name=="minikube")].cluster.certificate-authority}'
+ 8935  kubectl create \\n    -f auth/go-demo-2.yml \\n    --record --save-config
+ 8937  kubectl create \\n    -f auth/go-demo-2.yml \\n    --record --save-config
+ 8945  SERVER=$(kubectl config view \\n    -o jsonpath='{.clusters[?(@.name=="minikube")].cluster.server}')\n\necho $SERVER
+ 8946  kubectl config set-cluster jdoe \\n    --certificate-authority \\n    keys/ca.crt \\n    --server $SERVER
+ 8947  kubectl config set-credentials jdoe \\n    --client-certificate keys/jdoe.crt \\n    --client-key keys/jdoe.key
+ 8948  kubectl config set-context jdoe \\n    --cluster jdoe \\n    --user jdoe\n\nkubectl config use-context jdoe
+ 8952  kubectl config use-context minikube\nkubectl get all
+ 8953  kubectl auth can-i get pods --as jdoe
+ 8954  kubectl get roles
+ 8955  kubectl get clusterroles
+ 8956  kubectl get clusterroles | grep -v system
+ 8958  kubectl describe clusterrole edit
+ 8960  kubectl describe clusterrole edit
+ 8962  kubectl describe clusterrole \\n    cluster-admin
+ 8965  kubectl create rolebinding jdoe \\n    --clusterrole view \\n    --user jdoe \\n    --namespace default \\n    --save-config\n\nkubectl get rolebindings
+ 8966  kubectl describe rolebinding jdoe
+ 8967  kubectl --namespace kube-system \\n    describe rolebinding jdoe
+ 8968  kubectl auth can-i get pods \\n    --as jdoe\n\nkubectl auth can-i get pods \\n    --as jdoe --all-namespaces
+ 8969  kubectl delete rolebinding jdoe
+ 8970  kubectl create -f auth/crb-view.yml \\n    --record --save-config
+ 8971  kubectl describe clusterrolebinding \\n    view
+ 8972  kubectl auth can-i get pods \\n    --as jdoe --all-namespaces
+ 8973  kubectl create -f auth/rb-dev.yml \\n    --record --save-config
+ 8974  kubectl --namespace dev auth can-i \\n    create deployments --as jdoe\n\nkubectl --namespace dev auth can-i \\n    delete deployments --as jdoe
+ 8975  kubectl --namespace dev auth can-i \\n    "*" "*" --as jdoe
+ 8976  kubectl create -f auth/rb-jdoe.yml \\n    --record --save-config
+ 8977  kubectl --namespace jdoe auth can-i \\n    "*" "*" --as jdoe
+ 8978  kubectl describe clusterrole admin
+ 8979  kubectl create \\n    -f auth/crb-release-manager.yml \\n    --record --save-config
+ 8981  kubectl --namespace default auth \\n    can-i "*" pods --as jdoe
+ 8982  kubectl --namespace default auth \\n    can-i create deployments --as jdoe
+ 8983  kubectl --namespace default auth can-i \\n    delete deployments --as jdoe
+ 8984  kubectl config use-context jdoe
+ 8985  kubectl --namespace default \\n     create deployment db \\n     --image mongo:3.3
+ 8986  kubectl --namespace default \\n    delete deployment db
+ 8987  kubectl config set-context jdoe \\n    --cluster jdoe \\n    --user jdoe \\n    --namespace jdoe\n\nkubectl config use-context jdoe\n\nkubectl run db --image mongo:3.3
+ 8988  kubectl delete deployment db
+ 8989  kubectl create rolebinding mgandhi \\n    --clusterrole=view \\n    --user=mgandhi \\n    --namespace=jdoe
+ 8990  kubectl config use-context minikube\n\nkubectl apply -f auth/groups.yml \\n    --record
+ 8991  kubectl --namespace dev auth \\n    can-i create deployments --as jdoe
+ 8992  kubectl config use-context jdoe\n\nkubectl --namespace dev \\n     create deployment new-db \\n     --image mongo:3.3
+ 9000  kubectl create \\n    -f res/go-demo-2-random.yml \\n    --record --save-config\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9004  kubectl --namespace kube-system \\n    get pods
+ 9010  kubectl apply \\n    -f res/go-demo-2-insuf-mem.yml \\n    --record\n\nkubectl get pods
+ 9015  kubectl apply \\n    -f res/go-demo-2-insuf-node.yml \\n    --record\n\nkubectl get pods
+ 9019  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9021  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9026  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9031  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9033  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9034  kubectl status
+ 9037  kubectl rollout status
+ 9038  kubectl rollout status deployment go-demo-2-api
+ 9040  kubectl delete deployment go-demo-2-api
+ 9041  kubectl delete config go-demo-2-api
+ 9042  kubectl top pods
+ 9047  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9054  kubectl create \\n    -f res/go-demo-2-random.yml \\n    --record --save-config\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9055  kubectl describe deploy go-demo-2-api
+ 9056  kubectl describe nodes
+ 9057  kubectl --namespace kube-system \\n    get pods
+ 9058  kubectl top pods
+ 9059  kubectl apply \\n    -f res/go-demo-2-insuf-mem.yml \\n    --record\n\nkubectl get pods
+ 9060  kubectl describe pod go-demo-2-db
+ 9061  kubectl apply \\n    -f res/go-demo-2-insuf-node.yml \\n    --record\n\nkubectl get pods
+ 9062  kubectl describe pod go-demo-2-db
+ 9063  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9064  kubectl top pods
+ 9065  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9068  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9070  kubectl delete go-demo-2
+ 9071  kubectl delete deployment go-demo-2
+ 9072  kubectl delete deployment go-demo-2-api
+ 9073  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9075  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9076  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9079  kubectl top pods
+ 9081  kubectl describe pods
+ 9083  kubectl describe pods | less
+ 9110  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9112  kubectl delete deployment go-demo-2-api
+ 9113  kubectl delete deployment go-demo-2-db
+ 9115  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9123  kubectl create \\n    -f res/go-demo-2-random.yml \\n    --record --save-config\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9125  kubectl describe deploy go-demo-2-api
+ 9128  kubectl --namespace kube-system \\n    get pods
+ 9130  kubectl apply \\n    -f res/go-demo-2-insuf-mem.yml \\n    --record\n\nkubectl get pods
+ 9132  kubectl describe pod go-demo-2-db
+ 9133  kubectl apply \\n    -f res/go-demo-2-insuf-node.yml \\n    --record\n\nkubectl get pods
+ 9134  kubectl describe pod go-demo-2-db
+ 9135  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9136  kubectl api-resources | grep deployment
+ 9137  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9139  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9140  which kubectl
+ 9141  ls -la `which kubectl`
+ 9143  kubectl version
+ 9146  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9147  kubectl delete deployment go-demo-2-api
+ 9148  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9149  kubectl delete deployment go-demo-2-api
+ 9150  kubectl describe pod go-demo-2-api
+ 9152  kubectl delete deployment go-demo-2-db
+ 9154  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9156  kubectl get pods
+ 9157  kubectl get pods -n kube-system
+ 9158  kubectl get svc --all-namespaces
+ 9159  kubectl get pods -n ingress-nginx
+ 9168  kubectl get svc --all-namespaces
+ 9169  kubectl get pods -n ingress-nginx
+ 9170  kubectl get pods -n default
+ 9171  kubectl get pods -n ingress-nginx
+ 9172  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9174  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9175  kubectl get pods -n ingress-nginx
+ 9176  kubectl get pods
+ 9177  kubectl get pods -n ingress-nginx
+ 9182  kubectl delete deployment go-demo-2-api
+ 9183  kubectl delete deployment go-demo-2-db
+ 9184  kubectl get pods
+ 9186  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9187  kubectl get pods -n ingress-nginx
+ 9188  kubectl get pods -w
+ 9192  kubectl create \\n    -f res/go-demo-2-random.yml \\n    --record --save-config\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9193  kubectl delete deployment go-demo-2-api
+ 9194  kubectl delete deployment go-demo-2-ix
+ 9195  kubectl delete deployment go-demo-2-db
+ 9196  kubectl create \\n    -f res/go-demo-2-random.yml \\n    --record --save-config\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9197  kubectl get pods -w
+ 9200  kubectl get pods -n ingress-nginx
+ 9201  kubectl --namespace kube-system \\n    get pods
+ 9202  kubectl top pods
+ 9203  kubectl apply \\n    -f res/go-demo-2-insuf-mem.yml \\n    --record\n\nkubectl get pods
+ 9205  kubectl apply \\n    -f res/go-demo-2-insuf-mem.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9207  kubectl describe pod go-demo-2-db
+ 9208  kubectl apply \\n    -f res/go-demo-2-insuf-node.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9211  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9213  kubectl top pods
+ 9214  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9216  kubectl delete deployment go-demo-2-api
+ 9217  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9218  kubectl top pods
+ 9220  kubectl delete deployment go-demo-2-api
+ 9222  kubectl apply \\n    -f res/go-demo-2-random.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9223  kubectl top pods
+ 9224  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9225  kubectl get pods -w
+ 9226  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9227  kubectl top pods
+ 9228  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9229  kubectl top pods
+ 9230  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9231  kubectl top pods
+ 9232  kubectl get pods -w
+ 9234  kubectl get pods -w
+ 9235  kubectl get pods
+ 9236  kubectl get pods -w
+ 9238  kubectl get pods -w
+ 9239  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9240  kubectl get pods -w
+ 9242  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9243  kubectl top pods
+ 9244  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9245  kubectl top pods
+ 9246  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9247  kubectl delete deployment go-demo-2-api
+ 9248  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9249  kubectl delete deployment go-demo-2-api
+ 9250  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9251  kubectl top pods
+ 9252  kubectl apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-api
+ 9253  kubectl top pods
+ 9255  kubectl apply \\n    -f res/go-demo-2-qos.yml \\n    --record\n\nkubectl rollout status \\n    deployment go-demo-2-db
+ 9258  kubectl delete \\n    -f res/go-demo-2-qos.yml
+ 9259  kubectl create namespace test
+ 9260  kubectl --namespace test create \\n    -f res/limit-range.yml \\n    --save-config --record
+ 9262  kubectl --namespace test create \\n    -f res/go-demo-2-no-res.yml \\n    --save-config --record\n\nkubectl --namespace test \\n    rollout status \\n    deployment go-demo-2-api
+ 9264  kubectl --namespace test apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl --namespace test \\n    get events \\n    --watch
+ 9265  kubectl --namespace test run test \\n    --image alpine \\n    --requests memory=100Mi \\n    --restart Never \\n    sleep 10000
+ 9266  kubectl --namespace test run test \\n    --image alpine \\n    --requests memory=1Mi \\n    --restart Never \\n    sleep 10000
+ 9268  kubectl create \\n    -f res/dev.yml \\n    --record --save-config
+ 9269  kubectl --namespace dev describe \\n    quota dev
+ 9270  kubectl --namespace dev create \\n    -f res/go-demo-2.yml \\n    --save-config --record\n\nkubectl --namespace dev \\n    rollout status \\n    deployment go-demo-2-api
+ 9271  kubectl --namespace dev describe \\n    quota dev
+ 9272  [200~kubectl --namespace dev apply \\n    -f res/go-demo-2-scaled.yml \\n    --record~
+ 9273  kubectl --namespace dev apply \\n    -f res/go-demo-2-scaled.yml \\n    --record
+ 9277  kubectl --namespace dev apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl --namespace dev \\n    rollout status \\n    deployment go-demo-2-api
+ 9278  kubectl --namespace dev apply \\n    -f res/go-demo-2-mem.yml \\n    --record
+ 9279  kubectl --namespace dev get events \\n    | grep mem
+ 9280  kubectl describe namespace dev
+ 9281  kubectl --namespace dev apply \\n    -f res/go-demo-2.yml \\n    --record\n\nkubectl --namespace dev \\n    rollout status \\n    deployment go-demo-2-api
+ 9282  kubectl expose deployment go-demo-2-api \\n    --namespace dev \\n    --name go-demo-2-api \\n    --port 8080 \\n    --type NodePort
+ 9345  kubectl get nodes --show-labels
+ 9349  kubectl cluster-info
+ 9352  kubectl --namespace kube-system get pods
+ 9357  kubectl --namespace kube-system get pods
+ 9358  kubectl --namespace kube-system get nodes
+ 9405  kubectl get nodes
+ 9422  kubectl status
+ 9423  kubectl cluster-info
+ 9424  kubectl cluster-info dump
+ 9425  kubectl get nodes
+ 9431  kubectl cluster-info dump | grep -C2 -i version
+ 9432  kubectl cluster-info dump | grep -C2 -i version | less
+ 9433  kubectl version 
+ 9435  kubectl config view
+ 9442  kubectl config view | grep -C5 api-devops
+ 9443  kubectl create \\n    -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/ingress-nginx/v1.6.0.yaml
+ 9444  kubectl --namespace kube-ingress \\n    get all
+ 9449  cd ~/k8s-specs\n\nkubectl create \\n    -f aws/go-demo-2.yml \\n    --record --save-config
+ 9450  kubectl version 
+ 9451  kubectl rollout status \\n    deployment go-demo-2-api
+ 9456  kubectl get nodes
+ 9463  kubectl get nodes
+ 9465  kubectl get nodes
+ 9472  kubectl get nodes
+ 9474  kubectl get nodes
+ 9489  kubectl get nodes
+ 9510  kubectl create \\n    -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/ingress-nginx/v1.6.0.yaml
+ 9513  kubectl create \\n    -f pv/jenkins-no-pv.yml \\n    --record --save-config
+ 9514  kubectl --namespace jenkins \\n    get events
+ 9515  kubectl get pods
+ 9516  kubectl get pods --namespace jenkins
+ 9517  kubectl --namespace jenkins \\n    get events
+ 9518  kubectl get limitrange -o=yaml
+ 9521  kubectl create \\n    -f pv/jenkins-no-pv.yml \\n    --record --save-config
+ 9542  kubectl create \\n    -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/ingress-nginx/v1.6.0.yaml
+ 9546  kubectl create \\n    -f pv/jenkins-no-pv.yml \\n    --record --save-config
+ 9547  kubectl --namespace jenkins \\n    get events
+ 9551  kubectl --namespace jenkins \\n    get events
+ 9552  kubectl get nodes --namespace=jenkns
+ 9553  kubectl get nodes --namespace=jenkins
+ 9554  kubectl get nodes
+ 9555  kubectl rollout status \\n    deployment jenkins
+ 9556  kubectl get deployments
+ 9557  kubectl get deployments --namespace=jenkins
+ 9558  kubectl rollout status \\n    deployment jenkins --namespace=jenkins
+ 9559  kubectl --namespace jenkins \\n    get events
+ 9560  kubectl get pods --namespace jenkins
+ 9563  kubectl get pods --namespace jenkins
+ 9572  kubectl create \\n    -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/ingress-nginx/v1.6.0.yaml
+ 9575  kubectl create \\n    -f pv/jenkins-no-pv.yml \\n    --record --save-config
+ 9576  kubectl --namespace jenkins \\n    get events
+ 9577  kubectl --namespace jenkins \\n    create secret \\n    generic jenkins-creds \\n    --from-literal=jenkins-user=jdoe \\n    --from-literal=jenkins-pass=incognito
+ 9578  kubectl --namespace jenkins \\n    rollout status \\n    deployment jenkins
+ 9580  kubectl --namespace jenkins \\n    get pods \\n    --selector=app=jenkins \\n    -o json
+ 9581  POD_NAME=$(kubectl \\n    --namespace jenkins \\n    get pods \\n    --selector=app=jenkins \\n    -o jsonpath="{.items[*].metadata.name}")\n\necho $POD_NAME
+ 9582  kubectl --namespace jenkins \\n    exec -it $POD_NAME pkill java
+ 9590  cat pv/pv.yml \\n    | sed -e \\n    "s@REPLACE_ME_1@$VOLUME_ID_1@g" \\n    | sed -e \\n    "s@REPLACE_ME_2@$VOLUME_ID_2@g" \\n    | sed -e \\n    "s@REPLACE_ME_3@$VOLUME_ID_3@g" \\n    | kubectl create -f - \\n    --save-config --record
+ 9591  kubectl get pv
+ 9592  kubectl create -f pv/pvc.yml \\n    --save-config --record
+ 9593  kubectl --namespace jenkins \\n    get pvc
+ 9594  kubectl get pv
+ 9595  kubectl apply \\n    -f pv/jenkins-pv.yml \\n    --record
+ 9596  kubectl --namespace jenkins \\n    rollout status \\n    deployment jenkins
+ 9598  POD_NAME=$(kubectl \\n    --namespace jenkins \\n    get pod \\n    --selector=app=jenkins \\n    -o jsonpath="{.items[*].metadata.name}")
+ 9600  kubectl --namespace jenkins \\n    exec -it $POD_NAME pkill java
+ 9602  kubectl --namespace jenkins delete \\n    deploy jenkins
+ 9603  kubectl --namespace jenkins get pvc\n\nkubectl get pv
+ 9604  kubectl --namespace jenkins \\n    delete pvc jenkins
+ 9605  kubectl get pv
+ 9606  kubectl delete -f pv/pv.yml
+ 9608  kubectl get sc
+ 9609  kubectl apply \\n    -f pv/jenkins-dynamic.yml \\n    --record
+ 9610  kubectl --namespace jenkins \\n    rollout status \\n    deployment jenkins
+ 9611  kubectl --namespace jenkins \\n    get events
+ 9612  kubectl --namespace jenkins \\n    get pods \\n    --selector=app=jenkins \\n    -o json
+ 9613  kubectl --namespace jenkins get pvc
+ 9616  kubectl --namespace jenkins \\n    delete deploy,pvc jenkins
+ 9619  kubectl get sc
+ 9620  kubectl describe sc gp2
+ 9621  kubectl describe sc kops-ssd-1-17
+ 9623  kubectl apply \\n    -f pv/jenkins-default.yml \\n    --record
+ 9625  kubectl --namespace jenkins \\n    delete deploy,pvc jenkins
+ 9626  kubectl create -f pv/sc.yml
+ 9627  kubectl get sc
+ 9628  kubectl apply \\n    -f pv/jenkins-sc.yml \\n    --record
+ 9630  kubectl delete ns jenkins
+ 9642  kubectl describe cluster
+ 9647  kubectl describe nodes
+ 9648  kubectl get pods
+ 9662  kubectl ssh
+ 9663  kubectl describe nodes
+ 9664  kubectl get pods
+ 9665  kubectl get nodes

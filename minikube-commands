@@ -1,0 +1,210 @@
+ 8145  brew update && brew install kubectl minikube
+ 8146  minikube start --driver=docker
+ 8147  minikube status
+ 8148  minikube dashboard
+ 8150  minikube docker-env
+ 8151  eval $(minikube -p minikube docker-env)
+ 8152  minikube status
+ 8154  minikube ssh
+ 8159  minikube stop
+ 8160  minikube start
+ 8162  minikube delete
+ 8163  minikube start --driver=docker
+ 8170  eval $(minikube -p minikube docker-env)
+ 8222  minikube delete
+ 8223  minikube start --driver=docker
+ 8235  minikube delete -f rs/go-demo-2.yml --cascade=false
+ 8252  minikube delete 
+ 8253  minikube start --driver=docker
+ 8259  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8260  minikube ip
+ 8262  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8279  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8280  minikube service go-demo-2-svc
+ 8281  minikube service web-test --url
+ 8282  minikube service go-demo-2-svc --url
+ 8283  minikube service go-demo-2-svc 
+ 8292  minikube
+ 8293  minikube status
+ 8294  minikube start --driver=docker
+ 8299  minikube get node -o wide
+ 8303  minikube service 
+ 8304  minikube service go-demo-2
+ 8312  minikube ip
+ 8313  minikube service go-demo-2
+ 8314  minikube service go-demo-2-svc
+ 8321  minikube service go-demo-2-svc
+ 8325  minikube ip
+ 8327  minikube ssh
+ 8328  docker port minikube
+ 8330  minikube tunnel
+ 8331  minikube tunnel --help
+ 8332  minikube service go-demo-2-svc --url
+ 8333  minikube tunnel --help
+ 8334  docker port minikube
+ 8340  minikube delete
+ 8341  minikube start --vm
+ 8343  minikube ip
+ 8349  minikube ip
+ 8353  minikube ip
+ 8357  minikube service go-demo-2-svc
+ 8359  minikube service go-demo-2
+ 8361  minikube delete
+ 8362  minikube start --disk-size 64g --extra-config=apiserver.service-node-port-range=80-32767 --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8363  minikube delete
+ 8365  minikube start --driver=docker
+ 8378  minikube delete
+ 8380  minikube start --driver=docker
+ 8386  minikube ip
+ 8387  minikube service go-demo-2
+ 8388  minikube service go-demo-2-rs
+ 8390  PORT=$(kubectl get svc go-demo-2-svc \\n    -o jsonpath="{.spec.ports[0].nodePort}")\nIP=$(minikube ip)\nopen "http://$IP:$PORT"
+ 8391  minikube service go-demo-2-svc
+ 8396  minikube service go-demo-2-svc
+ 8397  minikube service list
+ 8398  minikube service go-demo-2
+ 8400  minikube ip
+ 8409  minikube service go-demo-2-api
+ 8416  minikube service go-demo-2-api
+ 8420  minikube delete
+ 8422  minikube start --driver=docker
+ 8432  minikube service go-demo-2-db-svc
+ 8434  minikube service go-demo-2-db
+ 8473  minikube delete
+ 8474  minikube start --driver=docker
+ 8476  minikube delete
+ 8477  minikube start --driver=hyperkit
+ 8481  minikube service go-demo-2-api
+ 8484  minikube service devops-toolkit
+ 8487  minikube service devops-toolkit
+ 8504  arch minikube
+ 8506  lipo -archs minikube
+ 8507  which minikube
+ 8508  lipo -archs `which minikube`
+ 8514  minikube delete
+ 8520  minikube start --driver=vmware
+ 8521  minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8522  minikube delete
+ 8523  minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8524  minikube delete
+ 8526  cd Projects/minikube
+ 8529  find . -name minikube
+ 8532  go run minikube
+ 8533  ./out/minikube
+ 8535  ./out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8536  minikube delete
+ 8554  ./out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8556  cd ~/Projects/minikube
+ 8557  ./out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8562  minikube delete
+ 8563  ./out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8564  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8572  minikube delete
+ 8582  minikube delete
+ 8599  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8603  minikube delete
+ 8612  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8617  minikube addons list
+ 8618  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8619  minikube addons list
+ 8620  minikube addons enable ingress
+ 8629  minikube ip
+ 8634  minikube delete
+ 8635  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8641  minikube status
+ 8643  IP=$(minikube ip)\n\nPORT=$(kubectl get svc go-demo-2-api \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\ncurl -i "http://$IP:$PORT/demo/hello"
+ 8651  minikube addons list
+ 8652  minikube addons enable ingress
+ 8661  minikube ip
+ 8665  minikube addons list
+ 8686  minikube ssh
+ 8688  minikube delete
+ 8689  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8690  minikube addons enable ingress
+ 8692  minikube delete
+ 8693  minikube start --driver=hyperkit
+ 8694  minikube addons enable ingress
+ 8703  IP=$(minikube ip)\n\nPORT=$(kubectl get svc go-demo-2-api \\n    -o jsonpath="{.spec.ports[0].nodePort}")\n\ncurl -i "http://$IP:$PORT/demo/hello"
+ 8709  minikube ssh
+ 8713  minikube --help
+ 8714  minikube profile
+ 8736  minikube delete
+ 8737  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr --v=8
+ 8738  minikube addons enable ingress
+ 8744  minikube delete
+ 8745  ~/Projects/minikube/out/minikube start --cpus=2 --memory=8192 --vm-driver=vmware --alsologtostderr 
+ 8746  minikube addons list
+ 8747  minikube addons enable ingress
+ 8752  minikube ssh
+ 8753  minikube delete
+ 8754  minikube start --driver=hyperkit
+ 8756  cp volume/prometheus-conf.yml ~/.minikube/files
+ 8757  minikube start --vm-driver=hyperkit\nminikube addons enable ingress\nkubectl config current-context
+ 8770  minikube ip
+ 8771  cat volume/prometheus.yml | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl create -f - \\n    --record --save-config\n\nkubectl rollout status deploy prometheus
+ 8773  cat volume/prometheus.yml | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl create -f - \\n    --record --save-config\n\nkubectl rollout status deploy prometheus
+ 8774  open "http://$(minikube ip)/prometheus"
+ 8775  open "http://$(minikube ip)/prometheus/targets"
+ 8776  open "http://$(minikube ip)/prometheus/config"
+ 8777  minikube ssh
+ 8778  minikube ssh sudo chmod +rw /files/prometheus-conf.yml
+ 8779  minikube ssh cat /files/prometheus-conf.yml
+ 8780  cat volume/prometheus-host-path.yml \\n    | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl apply -f -\n\nkubectl rollout status deploy prometheus\n\nopen "http://$(minikube ip)/prometheus/targets"
+ 8786  open "http://$(minikube ip)/jenkins"
+ 8787  open "http://$(minikube ip)/jenkins/newJob"
+ 8790  open "http://$(minikube ip)/jenkins"
+ 8793  open "http://$(minikube ip)/jenkins/newJob"
+ 8795  open "http://$(minikube ip)/jenkins"
+ 8798  minikube delete
+ 8800  alias mk='minikube'
+ 8802  alias mkd='minikube delete'
+ 8805  alias mkshy='minikube start --driver=hyperkit'
+ 8810  alias mka='minikube addons enable'
+ 8865  cat cm/prometheus.yml | sed -e \\n    "s/192.168.99.100/$(minikube ip)/g" \\n    | kubectl create -f -\n\nkubectl rollout status deploy prometheus\n\nopen "http://$(minikube ip)/prometheus/targets"
+ 8872  open "http://$(minikube ip)/jenkins"
+ 8890  open "http://$(minikube ip)/jenkins"
+ 8899  curl -H "Host: go-demo-2.com" \\n    "http://$(minikube ip)/demo/hello"
+ 8906  kubectl config set-context testing \\n    --namespace testing \\n    --cluster minikube \\n    --user minikube
+ 8913  curl -H "Host: go-demo-2.com" \\n    "http://$(minikube ip)/demo/hello"
+ 8914  curl -H "Host: 2.0.go-demo-2.com" \\n    "http://$(minikube ip)/demo/hello"
+ 8915  kc config use-context minikube
+ 8924  curl -H "Host: go-demo-2.com" \\n    "http://$(minikube ip)/demo/hello"
+ 8930  kubectl config view \\n    -o jsonpath='{.clusters[?(@.name=="minikube")].cluster.server}'
+ 8931  kubectl config view \\n    -o jsonpath='{.clusters[?(@.name=="minikube")].cluster.certificate-authority}'
+ 8932  minikube --version
+ 8933  minikube -v
+ 8934  minikube version
+ 8941  ls -l ~/.minikube/ca.*
+ 8942  openssl x509 -req \\n    -in keys/jdoe.csr \\n    -CA ~/.minikube/ca.crt \\n    -CAkey ~/.minikube/ca.key \\n    -CAcreateserial \\n    -out keys/jdoe.crt \\n    -days 365
+ 8943  cp ~/.minikube/ca.crt keys/ca.crt
+ 8945  SERVER=$(kubectl config view \\n    -o jsonpath='{.clusters[?(@.name=="minikube")].cluster.server}')\n\necho $SERVER
+ 8952  kubectl config use-context minikube\nkubectl get all
+ 8990  kubectl config use-context minikube\n\nkubectl apply -f auth/groups.yml \\n    --record
+ 9035  minikube status
+ 9088  minikube start --driver=hyperkit --memory=8G
+ 9089  minikube start --driver=hyperkit --memory=8G --cpus=4
+ 9091  minikube start --driver=hyperkit --memory=8G --cpus=4
+ 9094  minikube start --driver=hyperkit --memory=8G --cpus=4
+ 9095  which minikube
+ 9096  ls -la `which minikube`
+ 9097  cd Projects/minikube
+ 9103  brew update && brew upgrade minikube
+ 9106  ./out/minikube
+ 9107  ./out/minikube version
+ 9108  minikube version
+ 9117  ../minikube/out/minikube start --driver=hyperkit --memory=8G --cpus=4
+ 9118  minikube addons list
+ 9121  minikube addons list
+ 9138  minikube version
+ 9142  minikube version
+ 9144  ../minikube/out/minikube version
+ 9160  minikube addons list
+ 9161  ../minikube/out/minikube addons list
+ 9162  ../minikube/out/minikube addons disable ingress
+ 9163  ../minikube/out/minikube delete
+ 9164  ../minikube/out/minikube start --driver=hyperkit --memory=8G --cpus=4
+ 9165  ../minikube/out/minikube addons list
+ 9166  ../minikube/out/minikube addons enable ingress
+ 9178  ../minikube/out/minikube addons list
+ 9181  ../minikube/out/minikube addons list
+10005  history | grep -i minikube
