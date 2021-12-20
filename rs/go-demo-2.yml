@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: db
-        image: mongo:latest
+        image: mongo:3.6
       - name: api
         image: public.ecr.aws/b9a2w3x7/go-demo-2
         env:

@@ -41,7 +41,7 @@ spec:
     spec:
       containers:
       - name: db
-        image: mongo:3.3
+        image: mongo:3.6
         resources:
           limits:
             memory: "50Mi"

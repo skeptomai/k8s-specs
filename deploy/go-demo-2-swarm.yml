@@ -9,4 +9,4 @@ services:
     deploy:
       replicas: 3
   db:
-    image: mongo:latest
+    image: mongo:3.6

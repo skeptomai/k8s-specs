@@ -83,7 +83,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: db
-        image: mongo:latest
+        image: mongo:3.6
         command:
           - mongod
           - "--replSet"

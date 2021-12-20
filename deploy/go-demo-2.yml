@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: db
-        image: mongo:latest
+        image: mongo:3.6
 
 ---
 

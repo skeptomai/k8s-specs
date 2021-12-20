@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: db
-    image: mongo:latest
+    image: mongo:3.6
   - name: api-1
     image: public.ecr.aws/b9a2w3x7/go-demo-2
     env:
