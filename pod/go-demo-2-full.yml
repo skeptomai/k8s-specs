@@ -9,7 +9,7 @@ spec:
   - name: db
     image: mongo:3.6
   - name: api
-    image: vfarcic/go-demo-2
+    image: public.ecr.aws/b9a2w3x7/go-demo-2
     env:
     - name: DB
       value: localhost

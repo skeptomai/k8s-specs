@@ -77,7 +77,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: vfarcic/go-demo-2
+        image: public.ecr.aws/b9a2w3x7/go-demo-2
         env:
         - name: DB
           value: go-demo-2-db

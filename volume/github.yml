@@ -20,5 +20,5 @@ spec:
       type: Socket
   - name: github
     gitRepo:
-      repository: https://github.com/vfarcic/go-demo-2.git
+      repository: https://github.com/skeptomai/go-demo-2.git
       directory: .
