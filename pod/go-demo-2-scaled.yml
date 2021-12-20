@@ -7,14 +7,14 @@ metadata:
 spec:
   containers:
   - name: db
-    image: mongo:3.3
+    image: mongo:latest
   - name: api-1
-    image: vfarcic/go-demo-2
+    image: public.ecr.aws/b9a2w3x7/go-demo-2
     env:
     - name: DB
       value: localhost
   - name: api-2
-    image: vfarcic/go-demo-2
+    image: public.ecr.aws/b9a2w3x7/go-demo-2
     env:
     - name: DB
       value: localhost

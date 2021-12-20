@@ -18,9 +18,9 @@ spec:
     spec:
       containers:
       - name: db
-        image: mongo:3.3
+        image: mongo:latest
         ports:
-        - containerPort: 28017
+        - containerPort: 27017
 
 ---
 

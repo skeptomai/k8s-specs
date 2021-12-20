@@ -1,7 +1,7 @@
 version: "3"
 services:
   api:
-    image: vfarcic/go-demo-2
+    image: public.ecr.aws/b9a2w3x7/go-demo-2
     environment:
       - DB=db
     ports:
@@ -9,4 +9,4 @@ services:
     deploy:
       replicas: 3
   db:
-    image: mongo:3.3
+    image: mongo:latest

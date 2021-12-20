@@ -16,9 +16,9 @@ spec:
     spec:
       containers:
       - name: db
-        image: mongo:3.3
+        image: mongo:latest
         ports:
-        - containerPort: 28017
+        - containerPort: 27017
 
 ---
 
@@ -54,7 +54,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: vfarcic/go-demo-2
+        image: public.ecr.aws/b9a2w3x7/go-demo-2
         env:
         - name: DB
           value: go-demo-2-db
