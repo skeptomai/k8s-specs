@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: vfarcic/jenkins
+        image: public.ecr.aws/b9a2w3x7/jenkins
         env:
         - name: JENKINS_OPTS
           value: --prefix=/jenkins
