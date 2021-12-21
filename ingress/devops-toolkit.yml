@@ -38,7 +38,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vfarcic/devops-toolkit-series
+        image: public.ecr.aws/b9a2w3x7/devops-toolkit-series
 
 ---
 
