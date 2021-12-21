@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: prom/prometheus:v2.0.0
+        image: prom/prometheus-linux-arm64:v2.31.1
         command:
         - /bin/prometheus
         args:
