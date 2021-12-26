@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: public.ecr.aws/b9a2w3x7/jenkins
+        image: jenkins4eval/jenkins:2.287-alpine-arm64
         env:
         - name: JENKINS_OPTS
           value: --prefix=/jenkins
